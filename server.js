@@ -22,7 +22,7 @@ io.on('connection', function(client) {
   // room
   client.on('send message', function(data) {
     console.log('sending message');
-    console.log('sending room post', data.room, data.message);
+    console.log('sending room post', data.room);
     client.broadcast.to(data.room).emit('conversation private post', {
       message: data.message
     });

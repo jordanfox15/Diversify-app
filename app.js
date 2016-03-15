@@ -180,7 +180,7 @@
 }])
 
 
-.controller('messagesController', ['$scope', '$http', '$stateParams', '$window', '$state', function($scope, $http, $stateParams, $window, $state){
+.controller('messagesController', ['socket', '$scope', '$http', '$stateParams', '$window', '$state', function(socket, $scope, $http, $stateParams, $window, $state){
   $scope.currentUserId = $window.sessionStorage.userId
   $scope.message = {}
   $scope.topic={}
@@ -250,9 +250,18 @@ $scope.processForm= function(){
 headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken}
     }).success(function(data){
       var matchId = $scope.match.id
-      $state.reload();
+      angular.element(document).find('md-list').append("<md-list-item md-ink-ripple='#' class='md-3-line' layout='column'> <div class='md-list-item-text' layout='column'><h3>" + $scope.message.text + "</h3></div></md-list-item>");
+    socket.emit('send message', {
+    room: $stateParams.matchId,
+    message: $scope.message.text
+    });
     });
 };
+  socket.emit('subscribe', $stateParams.matchId)
+  socket.on('conversation private post', function(data) {
+    angular.element(document).find('md-list').append("<md-list-item md-ink-ripple='#' class='md-3-line' layout='column'> <div class='md-list-item-text' layout='column'><h3>" + data.message + "</h3></div></md-list-item>");
+    console.log(data.message);
+  });
 }])
 
 .controller("loginController", ['$scope', '$http', '$window', '$state', function($scope, $http, $window, $state){
@@ -436,7 +445,7 @@ headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken}
     }])
 .controller('AppCtrl', function($scope) {
   $scope.imagePath = 'img/washedout.png';
-  });
+  })
 
 // Factory wrapper for socket.io
 // Inject 'socket' to controller to use socket.io normally
