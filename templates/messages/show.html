@@ -1,0 +1,41 @@
+
+<main layout-align="center">
+<div flex-gt-sm="50" flex>
+  <md-toolbar layout="row" class="md-hue-2">
+  <div class="md-toolbar-tools" layout="row" layout-align="space-around center">
+  <md-button class="md-raised md-warn" ng-click="generateTopic()">Topic</md-button>
+    <span ng-if="match.first_user.id == currentUserId">{{
+      match.second_user.first_name + " " + match.second_user.last_name}}</span>
+    <span ng-if="match.second_user.id == currentUserId">{{
+      match.first_user.first_name + " " + match.first_user.last_name}}</span>
+    <a ui-sref="matchInfo({matchId: matchId})">
+      <md-button class="md-raised md-primary">Match Info</md-button>
+    </a>
+  </div>
+  </md-toolbar>
+  <md-content>
+  <md-list flex>
+  <md-subheader class="md-no-sticky">{{topic.name}}</md-subheader>
+  <md-list-item md-ink-ripple="#" class="md-3-line" ng-repeat="message in
+  messages" layout="column">
+  <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+  <div class="md-list-item-text" layout="column">
+    <h3>{{ message.text }}</h3>
+    <h4>{{ message.sender.first_name}}<span>{{
+        message.sender.last_name }}</span></h4>
+    <h4>{{message.created_at | date: 'HH:mm:ss'}}</h4>
+  </div>
+  </md-list-item>
+  </md-list flex>
+  <form ng-submit="processForm()">
+    <md-input-container class="md-block">
+    <label>Write a message</label>
+    <textarea ng-model="message.text"
+       rows="5"
+      md-select-on-focus></textarea>
+    </md-input-container>
+<div layout="row" layout-sm="column" layout-margin>
+  <md-button class="md-raised md-primary" flex="auto" type="submit">Send</md-button>
+</div>
+    </md-content>
+    </main>

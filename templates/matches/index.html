@@ -1,0 +1,26 @@
+<main layout-align="center">
+<div flex-gt-sm="50" flex>
+  <md-toolbar layout="row" class="md-hue-2">
+  <div class="md-toolbar-tools">
+    <span>Matches</span>
+  </div>
+  </md-toolbar>
+  <md-content>
+  <md-list flex>
+  <md-subheader class="md-no-sticky">3 line item</md-subheader>
+  <md-list-item md-ink-ripple="#" class="md-3-line" ng-repeat="match in matches">
+  <a ui-sref="messages({matchId: match.id})"  >
+    <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+    <div class="md-list-item-text" layout="column">
+      <h3 ng-if="match.first_user.id == currentUserId">{{
+        match.second_user.first_name + match.second_user.last_name}}</h3>
+      <h3 ng-if="match.second_user.id == currentUserId">{{
+        match.first_user.first_name + match.first_user.last_name}}</h3>
+      <h4><span>{{ item.time }}</span></h4>
+      <p>{{ item.notes }}</p>
+    </div>
+  </a>
+  </md-list-item>
+  </md-list flex>
+  </md-content>
+  </main>

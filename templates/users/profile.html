@@ -1,0 +1,35 @@
+<main class="md-padding layout-row flex" layout="row" layout-align="center" style="max-width: 978px; margin: 0 auto"flex="">
+
+<md-content>
+
+{{user.first_name}}
+<br>
+{{user.last_name}}
+<br>
+{{user.age}}
+<br>
+{{user.country}}
+<br>
+{{user.sex_or}}
+<br>
+{{user.religion}}
+<br>
+{{user.gender}}
+<br>
+{{user.race}}
+<br>
+{{user.ses}}
+<br>
+<br>
+
+<li ng-repeat="interest in user.interests">
+{{interest.name}}
+</li>
+<a ui-sref="demo"><md-button class="md-raised" flex="auto">Edit</md-button></a>
+<a ui-sref="interests"><md-button class="md-raised" flex="auto">Your Interests</md-button></a>
+</md-content>
+</main>
+
+<md-switch ng-model="data.cb2" aria-label="Switch 2" ng-true-value="'Inactive'" ng-false-value="'Active'" class="md-warn">
+  Make User Account Inactive: {{ data.cb2 }}
+</md-switch>

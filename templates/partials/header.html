@@ -1,0 +1,24 @@
+<div layout="row" layout-padding class="bg-dark-blue nav-dark" layout-align="space-between center" style="max-width: 978px; margin: 0 auto" ng-controller="headerController">
+  <div>
+    <a ui-sref="home" ng-hide="loggedOut()"><md-button>Home</md-button></a>
+    <a ui-sref="matches" ng-hide="loggedOut()"><md-button>Matches</md-button></a>
+    <a ui-sref="news" ng-hide="loggedOut()"><md-button>Culture</md-button></a>
+    <md-menu>
+    <md-button md-menu-origin ng-click="$mdOpenMenu()">Help</md-button>
+    <md-menu-content width="2">
+    <md-menu-item>
+    <md-button>Help</md-button>
+    </md-menu-item>
+    <md-menu-item>
+    <md-button>About</md-button>
+    </md-menu-item>
+    </md-menu-content>
+    </md-menu>
+  </div>
+  <div class="nav-buttons" >
+    <a ui-sref="login" ng-show="loggedOut()"><md-button class="md-raised md-primary">Log In</md-button></a>
+    <a ui-sref="register" ng-show="loggedOut()"><md-button class="md-raised md-primary">Register</md-button></a>
+    <a ui-sref="profile" ng-hide="loggedOut()"><md-button class="md-raised md-accent">My profile</md-button></a>
+    <a ui-sref="logout" ng-hide="loggedOut()"><md-button class="md-raised md-warn">Log Out</md-button></a>
+  </div>
+</div>
