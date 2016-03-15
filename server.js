@@ -34,7 +34,8 @@ io.on('connection', function(client) {
   })
 });
 
-// Sets server port at 8000
-server.listen(8000, function(){
-  console.log('listening on *:8000');
+// Sets server port at 8000 or production server port
+var port = process.env.PORT || 8000
+server.listen(port, function(){
+  console.log('listening on *:' + port);
 });
