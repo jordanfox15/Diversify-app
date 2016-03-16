@@ -8,7 +8,7 @@
       match.second_user.first_name + " " + match.second_user.last_name}}</span>
     <span ng-if="match.second_user.id == currentUserId">{{
       match.first_user.first_name + " " + match.first_user.last_name}}</span>
-    <a ui-sref="matchInfo({matchId: matchId})">
+    <a ui-sref="matchDetails({matchId: matchId})">
       <md-button class="md-raised md-primary">Match Info</md-button>
     </a>
   </div>

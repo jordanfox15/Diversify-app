@@ -10,7 +10,7 @@
 /tmp
 
 # Ignore Bower Components
-/bower_components/*
+/app/lib/*
 
 # Ignore Node Modules
 /node_modules/*

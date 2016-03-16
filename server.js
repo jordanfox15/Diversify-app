@@ -5,7 +5,7 @@ var server = require('http').Server(app);
 var io   = require('socket.io')(server);
 
 // Sets the directory that express uses to serve files
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + "/app"));
 
 // Establishes connection with client and prints to console
 io.on('connection', function(client) {
