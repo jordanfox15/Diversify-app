@@ -1,31 +1,40 @@
 <main class="md-padding layout-row flex" layout="row" layout-align="center" style="max-width: 978px; margin: 0 auto"flex="">
 <img ng-src="{{profile_pic.url}}" class="md-avatar"/>
 <md-content>
-{{user.first_name}}
-<br>
-{{user.last_name}}
+<strong> {{user.first_name}} {{user.last_name}} </strong>
 <br>
 {{user.demographic.age}}
 <br>
-{{user.country}}
+{{user.country.name}}
 <br>
-{{user.sex_or}}
+{{user.sex_or.name}}
 <br>
-{{user.religion}}
+{{user.religion.name}}
 <br>
-{{user.gender}}
+{{user.gender.name}}
 <br>
-{{user.race}}
+{{user.race.name}}
 <br>
-{{user.ses}}
+{{user.ses.name}}
 <br>
 <br>
 
-<li ng-repeat="interest in user.interests">
-{{interest.name}}
-</li>
-<a ui-sref="demographics"><md-button class="md-raised" flex="auto">Demographics</md-button></a>
-<a ui-sref="interests"><md-button class="md-raised" flex="auto">Your Interests</md-button></a>
+<md-card>
+  <md-card-header>
+    <strong> My interests </strong>
+  </md-card-header>
+
+  <md-list>
+    <md-list-item ng-repeat="interest in user.interests">
+    {{interest.name}}<md-divider>
+  </md-list-item>
+
+  </md-list>
+  </md-card>
+
+<a ui-sref="demographics"><md-button class="md-raised" flex="auto" style="background-color: #6699ff; color: white;">Edit Profile</md-button></a>
+<a ui-sref="interests"><md-button class="md-raised" flex="auto" style="background-color: #6699ff; color: white;">Add Interests</md-button></a>
+
 </md-content>
 </main>
 

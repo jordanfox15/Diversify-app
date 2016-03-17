@@ -4,6 +4,14 @@
 <h2>{{user.first_name}} {{user.last_name}}</h2>
 <form ng-submit='processForm()'>
 <md-input-container>
+<label>First Name</label>
+<input ng-model="user.first_name" type="text">
+</md-input-container>
+<md-input-container>
+<label>Last Name</label>
+<input ng-model="user.last_name" type="text">
+</md-input-container>
+<md-input-container>
 <label>Age</label>
 <input ng-model="user.demographic.age" type="text">
 </md-input-container>
@@ -63,7 +71,7 @@
 </md-input-container>
 <md-input-container layout-align="center center">
 <div layout="row" layout-sm="column" layout-margin>
-  <md-button class="md-raised" flex="auto" type='submit'>Save</md-button>
+  <md-button class="md-raised" flex="auto" type='submit' style="background-color: #6699ff; color: white;">Save</md-button>
 </div>
 </md-input-container>
 </form>
