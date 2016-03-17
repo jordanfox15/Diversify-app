@@ -3,7 +3,7 @@
 
   angular
   .module('diversifyApp', [
-    'ngMaterial', 
+    'ngMaterial',
     'ui.router',
     'registration',
     'profile',
@@ -16,7 +16,8 @@
     'login',
     'interests',
     'home',
-    'demographics'
+    'demographics',
+    'ngFileUpload'
     ])
   // ROUTER
   .config([

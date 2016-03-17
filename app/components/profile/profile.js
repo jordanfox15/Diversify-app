@@ -5,6 +5,15 @@
     $scope.user = {};
     $http({
       method: 'GET',
+      url: 'http://localhost:3000/api/users/profile_picture',
+      headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
+      }
+    }).success(function(data){
+      console.log(data);
+      $scope.profile_pic = data
+    });
+    $http({
+      method: 'GET',
       url: 'http://localhost:3000/api/users/profile',
       headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
       }
@@ -33,9 +42,9 @@
     }])
 
   .controller("ProfileCtrl", [
-      '$scope', 
-      '$http', 
-      '$window', 
+      '$scope',
+      '$http',
+      '$window',
       ProfileCtrl
       ]);
 
