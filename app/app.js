@@ -17,7 +17,9 @@
     'interests',
     'home',
     'demographics',
-    'ngFileUpload'
+    'ngFileUpload',
+    'help',
+    'about'
     ])
   // ROUTER
   .config([
