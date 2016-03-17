@@ -37,7 +37,6 @@
       headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
       }
     }).success(function(data){
-      console.log(data)
       $scope.match = data
       $scope.topic = data.topic
 
