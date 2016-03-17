@@ -5,6 +5,24 @@
     $scope.currentUserId = $window.sessionStorage.userId
       $scope.message = {}
     $scope.topic={}
+    $http({
+      method: 'GET',
+      url: 'http://localhost:3000/api/users/profile_picture',
+      headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
+      }
+    }).success(function(data){
+      console.log(data);
+      $scope.profile_pic = data
+    });
+    // $http({
+    //   method: 'GET',
+    //   url: 'http://localhost:3000/api/users/'+ $scope.message.recipientId+'recipient_pic',
+    //   headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
+    //   }
+    // }).success(function(data){
+    //   console.log(data);
+    //   $scope.recipient_pic = data
+    // });
     $scope.generateTopic=function(){
       $http({
         method: 'GET',
