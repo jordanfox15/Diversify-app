@@ -9,3 +9,8 @@ md-card {
 body {
   background-image: url(http://forum.lws-hosting.com/styles/BBOOTS/theme/bootstrap/pattern/background.jpg);
 }
+
+.md-avatar {
+  width: 100px;
+  height: 100px;
+}
