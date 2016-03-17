@@ -72,6 +72,7 @@
         }).success(function(data){
           var matchId = $scope.match.id
             angular.element(document).find('md-list').append("<md-list-item md-ink-ripple='#' class='md-3-line' layout='column'> <div class='md-list-item-text' layout='column'><h3>" + $scope.message.text + "</h3></div></md-list-item>");
+            $scope.message.text = null;
           socket.emit('send message', {
             room: $stateParams.matchId,
             message: $scope.message.text
@@ -81,7 +82,6 @@
     socket.emit('subscribe', $stateParams.matchId)
       socket.on('conversation private post', function(data) {
         angular.element(document).find('md-list').append("<md-list-item md-ink-ripple='#' class='md-3-line' layout='column'> <div class='md-list-item-text' layout='column'><h3>" + data.message + "</h3></div></md-list-item>");
-        console.log(data.message);
       });
   };
 
@@ -105,12 +105,12 @@
     }])
 
   .controller('MessagesCtrl', [
-      'socket', 
-      '$scope', 
-      '$http', 
-      '$stateParams', 
-      '$window', 
-      '$state', 
+      'socket',
+      '$scope',
+      '$http',
+      '$stateParams',
+      '$window',
+      '$state',
       MessagesCtrl
       ]);
 
