@@ -5,3 +5,7 @@ md-card {
 
 .carddemoBasicUsage .card-media {
   background-color: #999999; }
+
+body {
+  background-image: url(http://forum.lws-hosting.com/styles/BBOOTS/theme/bootstrap/pattern/background.jpg);
+}
