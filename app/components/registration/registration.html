@@ -28,7 +28,8 @@
 <label>Confirm Password:</label>
 <input ng-model="user.password_confirmation" required type="password">
 </md-input-container>
-
+<label>Attachment</label>
+<input type="file" ngf-select ng-model="user.avatar" />
 <md-input-container layout-align="center center">
 <div layout="row" layout-sm="column" layout-margin>
   <md-button class="md-raised md-primary" flex="auto" type="submit">Register</md-button>

@@ -1,23 +1,35 @@
 (function(){
   'use strict';
 
-  var RegistrationCtrl = function($scope, $http, $window, $state){
+  var RegistrationCtrl = function($scope, $http, $window, $state, Upload){
     $scope.user = {};
-    $scope.processForm = function(){
-      $http({
-        method: 'POST',
+    var upload = function(user_data){
+      Upload.upload({
         url: 'http://localhost:3000/api/users',
-        data: $scope.user
-      }).success(function(data){
+        method: 'POST',
+        data: {
+          user: user_data
+        }
+      }).then(
+        function (response) {
+        var data = response.data
         $window.sessionStorage.accessToken = data.token;
-        $window.sessionStorage.userId = data.user;
+        $window.sessionStorage.userId = data.user.id;
         $state.go('demographics')
-      });
-    };
+
+        },
+        function (response) {
+            console.error(response); //  Will return if status code is above 200 and lower than 300, same as $http
+        }
+      )
+    }
+    $scope.processForm = function(){
+      upload($scope.user)
+     }
   }
 
   angular
-    .module('registration', [])
+    .module('registration', ['ngFileUpload'])
 
     .config(['$stateProvider', function($stateProvider){
       $stateProvider
@@ -36,10 +48,11 @@
     }])
 
     .controller("RegistrationCtrl", [
-        '$scope', 
-        '$http', 
-        '$window', 
-        '$state', 
+        '$scope',
+        '$http',
+        '$window',
+        '$state',
+        'Upload',
         RegistrationCtrl
         ]);
 })();
