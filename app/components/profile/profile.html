@@ -1,6 +1,6 @@
 <main class="md-padding layout-row flex profile" layout="row" layout-align="center" style="max-width: 978px; margin: 0 auto"flex="">
 <img ng-src="{{profile_pic.url}}" class="md-avatar"/>
-<md-content>
+<md-content class='profile-demos'>
 <strong> {{user.first_name}} {{user.last_name}} </strong>
 <br>
 {{user.demographic.age}}
@@ -19,7 +19,11 @@
 <br>
 <br>
 
-<md-card>
+<a ui-sref="demographics"><md-button class="md-raised" flex="auto" style="background-color: #6699ff; color: white;">Edit Profile</md-button></a>
+
+</md-content>
+
+<md-card class="interests">
   <md-card-header>
     <strong> My interests </strong>
   </md-card-header>
@@ -30,14 +34,11 @@
   </md-list-item>
 
   </md-list>
-  </md-card>
-
-<a ui-sref="demographics"><md-button class="md-raised" flex="auto" style="background-color: #6699ff; color: white;">Edit Profile</md-button></a>
 <a ui-sref="interests"><md-button class="md-raised" flex="auto" style="background-color: #6699ff; color: white;">Add Interests</md-button></a>
-
-</md-content>
 <md-switch ng-model="data.cb2" aria-label="Switch 2" ng-true-value="'Inactive'" ng-false-value="'Active'" class="md-warn active-button">
   Deactivate Account: {{ data.cb2 }}
 </md-switch>
+  </md-card>
+
 </main>
 

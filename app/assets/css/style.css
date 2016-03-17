@@ -21,6 +21,16 @@ body {
 
 .active-button {
   position: absolute;
-  bottom: 0;
-  left: 700px;
+  bottom: -17px;
+  left: 150px;
+}
+
+.interests {
+  position: relative;
+}
+
+.profile-demos {
+  height: 250px;
+  width: 200px;
+  text-align: center;
 }
