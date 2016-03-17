@@ -2,11 +2,11 @@
   layout-align="space-between center" style="max-width: 978px; margin: 0 auto"
   ng-controller="HeaderCtrl">
   <div>
-    <a ui-sref="home" ng-hide="loggedOut()"><md-button>Home</md-button></a>
-    <a ui-sref="matches" ng-hide="loggedOut()"><md-button>Matches</md-button></a>
-    <a ui-sref="news" ng-hide="loggedOut()"><md-button>Culture</md-button></a>
+    <a ui-sref="home" ng-hide="loggedOut()"><md-button class="md raised" style="background-color: #6699ff; color: white;">Home</md-button></a>
+    <a ui-sref="matches" ng-hide="loggedOut()"><md-button class="md raised" style="background-color: #993399; color: white;">Matches</md-button></a>
+    <a ui-sref="news" ng-hide="loggedOut()"><md-button class="md raised" style="background-color: #009933; color: white;">Culture</md-button></a>
     <md-menu>
-    <md-button md-menu-origin ng-click="$mdOpenMenu()">Help</md-button>
+    <md-button md-menu-origin ng-click="$mdOpenMenu()" style="background-color: #999999; color: white;">Help</md-button>
     <md-menu-content width="2">
     <md-menu-item>
     <a ui-sref="help"><md-button>Help</md-button></a>

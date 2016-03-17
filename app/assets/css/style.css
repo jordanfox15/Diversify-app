@@ -14,3 +14,23 @@ body {
   width: 100px;
   height: 100px;
 }
+
+.profile {
+  position: relative;
+}
+
+.active-button {
+  position: absolute;
+  bottom: -17px;
+  left: 150px;
+}
+
+.interests {
+  position: relative;
+}
+
+.profile-demos {
+  height: 250px;
+  width: 200px;
+  text-align: center;
+}
