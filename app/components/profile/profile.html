@@ -1,4 +1,4 @@
-<main class="md-padding layout-row flex" layout="row" layout-align="center" style="max-width: 978px; margin: 0 auto"flex="">
+<main class="md-padding layout-row flex profile" layout="row" layout-align="center" style="max-width: 978px; margin: 0 auto"flex="">
 <img ng-src="{{profile_pic.url}}" class="md-avatar"/>
 <md-content>
 {{user.first_name}}
@@ -27,8 +27,8 @@
 <a ui-sref="demographics"><md-button class="md-raised" flex="auto">Demographics</md-button></a>
 <a ui-sref="interests"><md-button class="md-raised" flex="auto">Your Interests</md-button></a>
 </md-content>
+<md-switch ng-model="data.cb2" aria-label="Switch 2" ng-true-value="'Inactive'" ng-false-value="'Active'" class="md-warn active-button">
+  Deactivate Account: {{ data.cb2 }}
+</md-switch>
 </main>
 
-<md-switch ng-model="data.cb2" aria-label="Switch 2" ng-true-value="'Inactive'" ng-false-value="'Active'" class="md-warn">
-  Make User Account Inactive: {{ data.cb2 }}
-</md-switch>
