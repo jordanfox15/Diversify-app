@@ -5,30 +5,19 @@
     $scope.currentUserId = $window.sessionStorage.userId
       $scope.message = {}
     $scope.topic={}
-    $scope.generateTopic=function(){
+    $scope.setTopic = function(){
       $http({
-        method: 'GET',
-        url: 'http://localhost:3000/api/topics' ,
-        headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
+        method: 'PATCH',
+        url: 'http://localhost:3000/api/matches/'+$stateParams.matchId ,
+        headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken,
+        data: $scope.matchId
         }
       }).success(function(data){
-        $scope.topic = data
+        $scope.topic = data.topic
       }).error(function(error){
         console.log(error);
       });
     }
-
-    $http({
-      method: 'GET',
-      url: 'http://localhost:3000/api/topics' ,
-      headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
-      }
-    }).success(function(data){
-      $scope.topic = data
-    }).error(function(error){
-      console.log(error);
-    });
-    $scope.matchId = $stateParams.matchId
 
       $http({
         method: 'GET',
@@ -49,6 +38,7 @@
       }
     }).success(function(data){
       $scope.match = data
+      $scope.topic = data.topic
 
     }).error(function(error){
       console.log(error);
