@@ -4,9 +4,8 @@
   <md-toolbar layout="row" class="md-hue-2">
   <div class="md-toolbar-tools" layout="row" layout-align="space-around center">
   <a ui-sref="matches">
-    <md-button class="md-raised md-primary">Back</md-button>
-  </a>
-  <md-button class="md-raised md-warn" ng-click="setTopic()">Topic</md-button>
+    <md-button class="md-raised md-primary">Back</md-button></a>
+  <md-button class="md-raised md-warn" ng-click="generateTopic()">Topic</md-button>
     <span ng-if="match.first_user.id == currentUserId">{{
       match.second_user.first_name + " " + match.second_user.last_name}}</span>
     <span ng-if="match.second_user.id == currentUserId">{{
@@ -21,7 +20,7 @@
   <md-subheader class="md-no-sticky">{{topic.name}}</md-subheader>
   <md-list-item md-ink-ripple="#" class="md-3-line" ng-repeat="message in
   messages" layout="column">
-  <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+
   <div class="md-list-item-text" layout="column">
     <h3>{{ message.text }}</h3>
     <h4>{{ message.sender.first_name}}<span>{{

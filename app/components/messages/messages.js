@@ -5,6 +5,15 @@
     $scope.currentUserId = $window.sessionStorage.userId
       $scope.message = {}
     $scope.topic={}
+    $http({
+      method: 'GET',
+      url: 'http://localhost:3000/api/users/profile_picture',
+      headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
+      }
+    }).success(function(data){
+      console.log(data);
+      $scope.profile_pic = data
+    });
     $scope.setTopic = function(){
       $http({
         method: 'PATCH',
