@@ -1,16 +1,16 @@
 
 <main layout-align="center">
 <div flex-gt-sm="50" flex>
-  <md-toolbar layout="row" class="md-hue-2">
+    <h4 layout='column' layout-align= 'center center'><span ng-if="match.first_user.id == currentUserId">{{
+      match.second_user.first_name + " " + match.second_user.last_name}}</span></h4>
+    <h4 layout='column' layout-align= 'center center'><span ng-if="match.second_user.id == currentUserId">{{
+      match.first_user.first_name + " " + match.first_user.last_name}}</span></h4>
+  <md-toolbar layout="row" class="md-primary md-hue-3">
   <div class="md-toolbar-tools" layout="row" layout-align="space-around center">
-  <a ui-sref="matches">
+    <a ui-sref="matches">
     <md-button class="md-raised md-primary">Back</md-button></a>
-  <md-button class="md-raised md-warn" ng-click="generateTopic()">Topic</md-button>
-    <span ng-if="match.first_user.id == currentUserId">{{
-      match.second_user.first_name + " " + match.second_user.last_name}}</span>
-    <span ng-if="match.second_user.id == currentUserId">{{
-      match.first_user.first_name + " " + match.first_user.last_name}}</span>
-    <a ui-sref="matchDetails({matchId: matchId})">
+  <md-button class="md-raised md-primary" ng-click="setTopic()">Topic</md-button>
+    <a ui-sref="matchDetails({matchId: match.id})">
       <md-button class="md-raised md-primary">Match Info</md-button>
     </a>
   </div>
