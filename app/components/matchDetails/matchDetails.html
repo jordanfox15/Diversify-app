@@ -1,9 +1,9 @@
-<main class="md-padding layout-row flex" layout="row" layout-align="center" style="max-width: 978px; margin: 0 auto"flex="">
+<main class="md-padding layout-row flex" layout="row" layout-align="center" style="max-width: 978px; margin: 0 auto" flex="">
 
 <md-content layout="row">
 <md-card>
 <md-card-header>
-{{currentUserName}}
+  <strong>{{currentUserName}}</strong>
 </md-card-header>
 <md-list>
   <md-list-item ng-repeat="interest in senderInterests track by $index">
@@ -13,7 +13,7 @@
 </md-card>
 <md-card>
 <md-card-header>
-Your common interests
+  <strong>Your common interests</strong>
 </md-card-header>
 <md-list>
   <md-list-item ng-repeat="interest in commonInterests track by $index">
@@ -24,7 +24,7 @@ Your common interests
 </md-card>
 <md-card>
 <md-card-header>
-{{recipientName}}
+  <strong>{{recipientName}}</strong>
 </md-card-header>
 <md-list>
   <md-list-item ng-repeat="interest in recipientInterests track by $index">

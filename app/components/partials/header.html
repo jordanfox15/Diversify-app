@@ -1,7 +1,7 @@
 <div ng-controller="HeaderCtrl">
   <div hide-gt-xs layout="row">
     <md-sidenav md-component-id="left" class="md-sidenav-left" layout="column">
-      <md-toolbar class="md-theme-indigo md-primary md-hue-1" layout="row"
+      <md-toolbar class="md-accent md-hue-3" layout="row"
         layout-align="center center">
  <md-button ng-click="openLeftMenu()" class="md-icon-button" aria-label="Settings">
    <i class="material-icons">arrow_back</i>
@@ -16,10 +16,10 @@
       <a ui-sref="about" layout="column"><md-button>About</md-button></a>
       <a ui-sref="login" ng-show="loggedOut()" layout="column"><md-button class="md-raised md-primary" >Log In</md-button></a>
       <a ui-sref="registration" ng-show="loggedOut()" layout="column"><md-button class="md-raised md-accent">Register</md-button></a>
-      <a ui-sref="profile" ng-hide="loggedOut()" layout="column"><md-button class="md-raised md-accent">My profile</md-button></a>
+      <a ui-sref="profile" ng-hide="loggedOut()" layout="column"><md-button class="md-raised md-warn">My Profile</md-button></a>
       <a ui-sref="logout" ng-hide="loggedOut()" layout="column"><md-button class="md-raised md-warn">Log Out</md-button></a>
     </md-sidenav>
-    <md-toolbar class="md-theme-indigo md-primary  md-hue-3">
+    <md-toolbar class="md-theme-indigo md-accent md-hue-3">
       <div class="md-toolbar-tools">
         <md-button ng-click="openLeftMenu()" class="md-icon-button" aria-label="Settings">
           <i class="material-icons">menu</i>
