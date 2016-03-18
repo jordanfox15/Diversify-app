@@ -1,8 +1,8 @@
 <main class="md-padding layout-row flex" layout="row" layout-align="center" style="max-width: 978px; margin: 0 auto"flex="">
 <md-whiteframe class="md-whiteframe-z1" layout="column" flex="40" flex-xs="70" layout-padding>
-<md-content md-theme="docs-dark">
+<md-content layout="column" layout-align="center center">
 <h2>{{user.first_name}} {{user.last_name}}</h2>
-<form ng-submit='processForm()'>
+<form ng-submit='processForm()' layout="column" >
 <md-input-container>
 <label>First Name</label>
 <input ng-model="user.first_name" type="text">
