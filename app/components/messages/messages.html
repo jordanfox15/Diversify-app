@@ -20,9 +20,7 @@
   <md-subheader class="md-no-sticky">{{topic.name}}</md-subheader>
   <md-list-item md-ink-ripple="#" class="md-3-line" ng-repeat="message in
   messages" layout="column">
-<!--   <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" /> -->
 
-<img ng-src="{{profile_pic.url}}" class="md-avatar"/>
   <div class="md-list-item-text" layout="column">
     <h3>{{ message.text }}</h3>
     <h4>{{ message.sender.first_name}}<span>{{

@@ -10,7 +10,9 @@
   <md-subheader class="md-no-sticky"></md-subheader>
   <md-list-item md-ink-ripple="#" class="md-3-line" ng-repeat="match in matches">
   <a ui-sref="messages({matchId: match.id})"  >
-    <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+    <!-- <h3 ng-if="match.first_user.id == currentUserId"> -->
+
+    <img ng-src="{{recipient_pic.url}}" class="md-avatar"/>
     <div class="md-list-item-text" layout="column">
       <h3 ng-if="match.first_user.id == currentUserId">{{
         match.second_user.first_name + match.second_user.last_name}}</h3>
