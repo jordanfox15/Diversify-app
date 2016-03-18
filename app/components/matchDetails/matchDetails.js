@@ -11,7 +11,7 @@
         headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
         }
       }).success(function(data){
-        $scope.match = data
+        $scope.match = data[0]
           if ($scope.match.first_user.id == $scope.currentUserId ){
             var recipientId = $scope.match.second_user.id
               $scope.recipientName = $scope.match.second_user.first_name + " " + $scope.match.second_user.last_name
@@ -28,6 +28,7 @@
           headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
           }
         }).success(function(data){
+          console.log(data)
           $scope.recipientInterests = data.map(function(obj) { return obj.name });
         });
 
@@ -37,6 +38,7 @@
           headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
           }
         }).success(function(data){
+          console.log( data)
           $scope.senderInterests = data.map(function(obj) { return obj.name });
 
         });

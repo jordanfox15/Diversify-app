@@ -4,7 +4,9 @@
   var InterestsCtrl = function($scope, $http, $window, $state, selected_interests, interest_list){
       $scope.selected = [];
     if (selected_interests.data.length > 0){
-      $scope.selected = selected_interests.data
+      $scope.selected = selected_interests.data.map(function(obj){
+        return obj.id
+      })
     }
     $scope.interests = interest_list.data
 
