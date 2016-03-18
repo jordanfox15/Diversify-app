@@ -5,6 +5,7 @@
     $scope.currentUserId = $window.sessionStorage.userId
       $scope.senderInterests = []
       $scope.recipientInterests = []
+
       $http({
         method: 'GET',
         url: 'http://localhost:3000/api/matches/' + $stateParams.matchId ,
@@ -16,6 +17,7 @@
             var recipientId = $scope.match.second_user.id
               $scope.recipientName = $scope.match.second_user.first_name + " " + $scope.match.second_user.last_name
               $scope.currentUserName = $scope.match.first_user.first_name + " " + $scope.match.first_user.last_name
+              console.log($scope.recipientName)
           }
           else if ($scope.match.second_user.id == $scope.currentUserId ){
             var recipientId = $scope.match.first_user.id
@@ -28,7 +30,7 @@
           headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
           }
         }).success(function(data){
-          $scope.recipientInterests = data.map(function(obj) { return obj.name });
+          $scope.recipientInterests = data.map(function(obj) { return obj});
         });
 
         $http({
@@ -37,7 +39,11 @@
           headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
           }
         }).success(function(data){
-          $scope.senderInterests = data.map(function(obj) { return obj.name });
+          $scope.senderInterests = data.map(function(obj) { return obj });
+          console.log(data)
+           // $scope.blah= $scope.match.first_user
+           // console.log($scope.blah)
+
 
         });
       }).error(function(error){
@@ -56,7 +62,6 @@
         $scope.commonInterests = _.intersection($scope.senderInterests, $scope.recipientInterests)
       }
     })
-
 
   }
 
@@ -81,10 +86,10 @@
 
   .controller("MatchDetailsCtrl", [
       '$scope',
-      '$window', 
-      '$state', 
-      '$http', 
-      '$stateParams', 
+      '$window',
+      '$state',
+      '$http',
+      '$stateParams',
       MatchDetailsCtrl
   ]);
 })();

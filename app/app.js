@@ -17,9 +17,11 @@
     'interests',
     'home',
     'demographics',
+    // 'angular-carousel',
     'ngFileUpload',
     'help',
     'about'
+
     ])
   // ROUTER
   .config([
