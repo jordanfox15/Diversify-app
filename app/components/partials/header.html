@@ -12,8 +12,8 @@
       <a ui-sref="home" layout="column"><md-button>Home</md-button></a>
       <a ui-sref="matches" ng-hide="loggedOut()" layout="column"><md-button>Matches</md-button></a>
       <a ui-sref="news" ng-hide="loggedOut()" layout="column"><md-button>Culture</md-button></a>
-      <md-button>Help</md-button>
-      <md-button>About</md-button>
+      <a ui-sref="help" layout="column"><md-button>Help</md-button></a>
+      <a ui-sref="about" layout="column"><md-button>About</md-button></a>
       <a ui-sref="login" ng-show="loggedOut()" layout="column"><md-button class="md-raised md-primary" >Log In</md-button></a>
       <a ui-sref="registration" ng-show="loggedOut()" layout="column"><md-button class="md-raised md-accent">Register</md-button></a>
       <a ui-sref="profile" ng-hide="loggedOut()" layout="column"><md-button class="md-raised md-accent">My profile</md-button></a>
