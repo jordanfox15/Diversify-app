@@ -7,21 +7,22 @@
       match.first_user.first_name + " " + match.first_user.last_name}}</span></h4>
   <md-toolbar layout="row" class="md-primary md-hue-3">
   <div class="md-toolbar-tools" layout="row" layout-align="space-around center">
-    <a ui-sref="matches">
-    <md-button class="md-raised md-primary">Back</md-button></a>
+  <a ui-sref="matches">
+    <md-button class="md-icon-button md-raised md-primary"><i
+               class="material-icons">arrow_back</i></md-button></a>
   <md-button class="md-raised md-primary" ng-click="setTopic()">Topic</md-button>
-    <a ui-sref="matchDetails({matchId: match.id})">
+    <a ui-sref="matchDetails({matchId: matchId})">
       <md-button class="md-raised md-primary">Match Info</md-button>
     </a>
   </div>
   </md-toolbar>
   <md-content>
-  <md-list flex>
+  <md-list flex layout="column" layout-align="center start">
   <md-subheader class="md-no-sticky">{{topic.name}}</md-subheader>
   <md-list-item md-ink-ripple="#" class="md-3-line" ng-repeat="message in
-  messages" layout="column">
+  messages" layout="column" >
 
-  <div class="md-list-item-text" layout="column">
+  <div class="md-list-item-text" layout="column" layout-align="center start">
     <h3>{{ message.text }}</h3>
     <h4>{{ message.sender.first_name}}<span>{{
         message.sender.last_name }}</span></h4>
