@@ -92,7 +92,7 @@
   };
 
   angular
-    .module('messages', [])
+    .module('messages', ['luegg.directives'])
 
     .config(['$stateProvider', function($stateProvider) {
       $stateProvider
