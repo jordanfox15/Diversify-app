@@ -9,7 +9,7 @@
   <md-list flex>
   <md-subheader class="md-no-sticky"></md-subheader>
   <md-list-item md-ink-ripple="#" class="md-3-line" ng-repeat="match in matches" layout= 'column' layout-align='center center'>
-  <a ui-sref="messages({matchId: match.id})"  >
+  <a ui-sref="messages({matchId: match.id})"  layout="row">
     <!-- <h3 ng-if="match.first_user.id == currentUserId"> -->
 
     <img ng-src="{{recipient_pic.url}}" class="md-avatar"/>
