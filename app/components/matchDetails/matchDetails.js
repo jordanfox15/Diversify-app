@@ -1,14 +1,14 @@
 (function(){
   'use strict';
 
-  var MatchDetailsCtrl = function($scope, $window, $state, $http, $stateParams){
+  var MatchDetailsCtrl = function($scope, $window, $state, $http, $stateParams, SERVER_URL){
     $scope.currentUserId = $window.sessionStorage.userId
       $scope.senderInterests = []
       $scope.recipientInterests = []
 
       $http({
         method: 'GET',
-        url: 'http://localhost:3000/api/matches/' + $stateParams.matchId ,
+        url: SERVER_URL + '/api/matches/' + $stateParams.matchId ,
         headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
         }
       }).success(function(data){
@@ -25,7 +25,7 @@
           }
         $http({
           method: 'GET',
-          url: 'http://localhost:3000/api/users/' + recipientId + '/interests',
+          url: SERVER_URL + '/api/users/' + recipientId + '/interests',
           headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
           }
         }).success(function(data){
@@ -34,7 +34,7 @@
 
         $http({
           method: 'GET',
-          url: 'http://localhost:3000/api/users/' + $scope.currentUserId + '/interests',
+          url: SERVER_URL + '/api/users/' + $scope.currentUserId + '/interests',
           headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
           }
         }).success(function(data){
@@ -60,7 +60,7 @@
   }
 
   angular
-    .module('matchDetails', [])
+    .module('matchDetails', ['serverurl-constants'])
 
     .config(['$stateProvider', function($stateProvider){
       $stateProvider
@@ -84,6 +84,7 @@
       '$state',
       '$http',
       '$stateParams',
+      'SERVER_URL',
       MatchDetailsCtrl
   ]);
 })();

@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  var MatchesCtrl = function($scope, $http, $window, matches){
+  var MatchesCtrl = function($scope, $http, $window, matches, SERVER_URL){
     $scope.currentUserId = $window.sessionStorage.userId
 
     $scope.matches= matches.data
@@ -25,7 +25,7 @@
       // });
       $http({
         method: 'GET',
-        url: 'http://localhost:3000/api/users/' + $scope.matches[0].first_user_id +'/recipient_picture',
+        url: SERVER_URL + '/api/users/' + $scope.matches[0].first_user_id +'/recipient_picture',
         headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
         }
       }).success(function(data){
@@ -41,13 +41,13 @@
               function($http, $window){
               return $http({
                 method: 'GET',
-                url: 'http://localhost:3000/api/matches',
+                url: SERVER_URL + '/api/matches',
                 headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
         }
       })}]
   }
   angular
-    .module('matches', [])
+    .module('matches', ['serverurl-constants'])
 
     .config(['$stateProvider', function($stateProvider){
       $stateProvider
@@ -71,6 +71,7 @@
         '$http',
         '$window',
         'matches',
+        'SERVER_URL',
         MatchesCtrl
         ]);
 })();

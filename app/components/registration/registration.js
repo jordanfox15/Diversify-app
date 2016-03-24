@@ -1,11 +1,11 @@
 (function(){
   'use strict';
 
-  var RegistrationCtrl = function($scope, $http, $window, $state, Upload){
+  var RegistrationCtrl = function($scope, $http, $window, $state, Upload, SERVER_URL){
     $scope.user = {};
     var upload = function(user_data){
       Upload.upload({
-        url: 'http://localhost:3000/api/users',
+        url: SERVER_URL + '/api/users',
         method: 'POST',
         data: {
           user: user_data
@@ -29,7 +29,7 @@
   }
 
   angular
-    .module('registration', ['ngFileUpload'])
+    .module('registration', ['ngFileUpload', 'serverurl-constants'])
 
     .config(['$stateProvider', function($stateProvider){
       $stateProvider
@@ -53,6 +53,7 @@
         '$window',
         '$state',
         'Upload',
+				'SERVER_URL',
         RegistrationCtrl
         ]);
 })();
