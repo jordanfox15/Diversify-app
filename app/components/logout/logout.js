@@ -1,11 +1,11 @@
 (function(){
   'use strict';
 
-  var LogoutCtrl = function($scope, $http, $window, $state){
+  var LogoutCtrl = function($scope, $http, $window, $state, SERVER_URL){
   $scope.user = {};
   $http({
     method: 'DELETE',
-    url: 'http://localhost:3000/api/sessions',
+    url: SERVER_URL + '/api/sessions',
     headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
     }
   }).success(function(data){
@@ -35,6 +35,7 @@
     '$http', 
     '$window', 
     '$state', 
+    'SERVER_URL',
     LogoutCtrl
     ]);
 

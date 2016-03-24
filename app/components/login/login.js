@@ -1,12 +1,13 @@
 (function(){
   'use strict';
 
-  var LoginCtrl = function($scope, $http, $window, $state){
+  var LoginCtrl = function($scope, $http, $window, $state, SERVER_URL){
+    console.log(SERVER_URL)
     $scope.user = {};
     $scope.processForm= function(){
       $http({
         method: 'POST',
-        url: 'http://localhost:3000/api/sessions',
+        url: SERVER_URL + '/api/sessions',
         data: $scope.user
       }).success(function(data){
         $window.sessionStorage.accessToken = data.token;
@@ -17,7 +18,7 @@
   }
 
   angular
-    .module('login', [])
+    .module('login', ['serverurl-constants'])
 
     .config(['$stateProvider', function($stateProvider){
       $stateProvider
@@ -40,6 +41,7 @@
       '$http', 
       '$window', 
       '$state', 
+      'SERVER_URL',
       LoginCtrl
   ]);
 

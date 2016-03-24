@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  var InterestsCtrl = function($scope, $http, $window, $state, selected_interests, interest_list){
+  var InterestsCtrl = function($scope, $http, $window, $state, selected_interests, interest_list, SERVER_URL){
       $scope.selected = [];
     if (selected_interests.data.length > 0){
       $scope.selected = selected_interests.data.map(function(obj){
@@ -27,7 +27,7 @@
       $scope.selected;
       $http({
         method: 'PATCH',
-        url: 'http://localhost:3000/api/users/profile',
+        url: SERVER_URL + '/api/users/profile',
         data: {user: {interest_ids: $scope.selected}},
         headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken}
       }).success(function(data){
@@ -40,10 +40,11 @@
     selected_interests: [
       '$window',
       '$http',
-      function($window, $http){  
+      'SERVER_URL',
+      function($window, $http, SERVER_URL){  
         return  $http({
           method: 'GET',
-          url: 'http://localhost:3000/api/users/'+ $window.sessionStorage.userId + '/interests',
+          url: SERVER_URL + '/api/users/'+ $window.sessionStorage.userId + '/interests',
           headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
           }
         })
@@ -52,10 +53,11 @@
     interest_list: [
       '$window',
       '$http',
-      function($window, $http){
+      'SERVER_URL',
+      function($window, $http, SERVER_URL){
         return $http({
           method: 'GET',
-          url: 'http://localhost:3000/api/interests',
+          url: SERVER_URL + '/api/interests',
           headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
           }
         })
@@ -64,7 +66,7 @@
 
 
   angular
-    .module('interests', [])
+    .module('interests', ['serverurl-constants'])
 
     .config(['$stateProvider', function($stateProvider){
       $stateProvider
@@ -90,6 +92,7 @@
       '$state', 
       'selected_interests',
       'interest_list',
+      'SERVER_URL',
       InterestsCtrl
   ]);
 

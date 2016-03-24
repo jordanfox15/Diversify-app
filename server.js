@@ -3,6 +3,11 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io   = require('socket.io')(server);
+var gulp = require('gulp');
+require('./gulpfile');
+
+// Kick of gulp 'config' task, which generates angular const configuration
+gulp.start('replace'); 
 
 // Sets the directory that express uses to serve files
 app.use(express.static(__dirname + "/app"));
@@ -34,8 +39,8 @@ io.on('connection', function(client) {
   })
 });
 
-// Sets server port at 8000 or production server port
-var port = process.env.PORT || 8000
-server.listen(port, function(){
-  console.log('listening on *:' + port);
-});
+  // Sets server port at 8000 or production server port
+  var port = process.env.PORT || 8000
+  server.listen(port, function(){
+    console.log('listening on *:' + port);
+  });

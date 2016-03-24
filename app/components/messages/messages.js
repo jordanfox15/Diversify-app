@@ -1,13 +1,13 @@
 (function(){
   'use strict';
 
-  var MessagesCtrl = function(socket, $scope, $http, $stateParams, $window, $state){
+  var MessagesCtrl = function(socket, $scope, $http, $stateParams, $window, $state, SERVER_URL){
     $scope.currentUserId = $window.sessionStorage.userId
       $scope.message = {}
     $scope.topic={}
     $http({
       method: 'GET',
-      url: 'http://localhost:3000/api/users/profile_picture',
+      url: SERVER_URL + '/api/users/profile_picture',
       headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
       }
     }).success(function(data){
@@ -16,7 +16,7 @@
     $scope.setTopic = function(){
       $http({
         method: 'PATCH',
-        url: 'http://localhost:3000/api/matches/'+$stateParams.matchId ,
+        url: SERVER_URL + '/api/matches/'+$stateParams.matchId ,
         headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken,
         data: $scope.matchId
         }
@@ -29,7 +29,7 @@
 
       $http({
         method: 'GET',
-        url: 'http://localhost:3000/api/matches/' + $stateParams.matchId+ '/messages' ,
+        url: SERVER_URL + '/api/matches/' + $stateParams.matchId+ '/messages' ,
         headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
         }
       }).success(function(data){
@@ -41,7 +41,7 @@
 
     $http({
       method: 'GET',
-      url: 'http://localhost:3000/api/matches/' + $stateParams.matchId ,
+      url: SERVER_URL + '/api/matches/' + $stateParams.matchId ,
       headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
       }
     }).success(function(data){
@@ -72,7 +72,7 @@
         $scope.message.match_id = $scope.match.id
         $http({
           method: 'POST',
-          url: 'http://localhost:3000/api/matches/' + $stateParams.matchId + '/messages' ,
+          url: SERVER_URL + '/api/matches/' + $stateParams.matchId + '/messages' ,
           data: $scope.message,
           headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken}
         }).success(function(data){
@@ -117,6 +117,7 @@
       '$stateParams',
       '$window',
       '$state',
+			'SERVER_URL',
       MessagesCtrl
       ]);
 

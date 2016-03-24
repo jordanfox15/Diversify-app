@@ -1,22 +1,21 @@
 (function(){
   'use strict';
 
-  var DemographicsCtrl = function($scope, $http, $window, $state){
+  var DemographicsCtrl = function($scope, $http, $window, $state, SERVER_URL){
   $scope.user = {};
   $scope.formData= {};
   $http({
     method: 'GET',
-    url: 'http://localhost:3000/api/users/profile',
+    url: SERVER_URL + '/api/users/profile',
     headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
     }
   }).success(function(data){
-    console.log('blah')
     console.log(data)
     $scope.user = data
   });
   $http({
     method: 'GET',
-    url: 'http://localhost:3000/api/demographics/new',
+    url: SERVER_URL + '/api/demographics/new',
     headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
     }
   }).success(function(data){
@@ -27,7 +26,7 @@
     console.log($scope.formData)
     $http({
       method: 'PATCH',
-      url: 'http://localhost:3000/api/demographics/' + $scope.user.demographic.id,
+      url: SERVER_URL + '/api/demographics/' + $scope.user.demographic.id,
       data: $scope.formData,
       headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken}
     }).success(function(data){
@@ -39,7 +38,7 @@
 };
 
   angular
-    .module('demographics', [])
+    .module('demographics', ['serverurl-constants'])
 
     .config(['$stateProvider', function($stateProvider){
       $stateProvider
@@ -62,6 +61,7 @@
     '$http',
     '$window',
     '$state',
+    'SERVER_URL',
     DemographicsCtrl
     ]);
 

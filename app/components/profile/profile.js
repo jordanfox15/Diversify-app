@@ -1,11 +1,11 @@
 (function(){
   'use strict';
 
-  var ProfileCtrl = function($scope, $http, $window){
+  var ProfileCtrl = function($scope, $http, $window, SERVER_URL){
     $scope.user = {};
     $http({
       method: 'GET',
-      url: 'http://localhost:3000/api/users/profile_picture',
+      url: SERVER_URL + '/api/users/profile_picture',
       headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
       }
     }).success(function(data){
@@ -14,7 +14,7 @@
     });
     $http({
       method: 'GET',
-      url: 'http://localhost:3000/api/users/profile',
+      url: SERVER_URL + '/api/users/profile',
       headers:{Authorization: "Token token=" + $window.sessionStorage.accessToken
       }
     }).success(function(data){
@@ -45,6 +45,7 @@
       '$scope',
       '$http',
       '$window',
+      'SERVER_URL',
       ProfileCtrl
       ]);
 

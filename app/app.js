@@ -20,7 +20,8 @@
     // 'angular-carousel',
     'ngFileUpload',
     'help',
-    'about'
+    'about',
+    'serverurl-constants'
 
     ])
   // ROUTER
