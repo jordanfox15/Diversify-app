@@ -1,5 +1,5 @@
 <main layout-align="center">
-<div flex-gt-sm="50" flex>
+<div flex>
   <md-toolbar layout="row" class="md-hue-2">
   <div class="md-toolbar-tools" layout= 'column' layout-align='center center'>
     <strong><span>Matches</span></strong>
@@ -9,7 +9,7 @@
   <md-list flex>
   <md-subheader class="md-no-sticky"></md-subheader>
   <md-list-item md-ink-ripple="#" class="md-3-line" ng-repeat="match in matches" layout= 'column' layout-align='center center'>
-  <a ui-sref="messages({matchId: match.id})"  >
+  <a ui-sref="messages({matchId: match.id})"  layout="row">
     <!-- <h3 ng-if="match.first_user.id == currentUserId"> -->
 
     <img ng-src="{{recipient_pic.url}}" class="md-avatar"/>

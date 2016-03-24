@@ -4,10 +4,10 @@
   <strong style="margin: 0 auto"> Select all your interests! </strong>
   <h2>{{user.first_name}} {{user.last_name}}</h2>
   <form ng-submit='processForm()'>
-    <div layout="row" layout-wrap flex>
+    <div layout="row" layout-xs="column" layout-wrap flex>
       <div flex="30" ng-repeat="interest in interests">
         <md-checkbox ng-checked="exists(interest, selected)" ng-click="toggle(interest, selected)">
-        {{ interest.name }} <span ng-if="exists(interest, selected)">selected</span>
+        {{ interest.name }} 
       </md-checkbox>
     </div>
   </div>

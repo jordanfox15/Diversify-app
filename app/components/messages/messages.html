@@ -1,6 +1,6 @@
 
 <main layout-align="center">
-<div flex-gt-sm="50" flex>
+<div flex>
     <h4 layout='column' layout-align= 'center center'><span ng-if="match.first_user.id == currentUserId">{{
       match.second_user.first_name + " " + match.second_user.last_name}}</span></h4>
     <h4 layout='column' layout-align= 'center center'><span ng-if="match.second_user.id == currentUserId">{{
@@ -17,8 +17,9 @@
   </div>
   </md-toolbar>
   <md-content>
-  <md-list flex layout="column" layout-align="center start">
   <md-subheader class="md-no-sticky">{{topic.name}}</md-subheader>
+  <md-list flex layout="column" layout-align="center start"
+  style="height:30em; overflow: auto" scroll-glue>
   <md-list-item md-ink-ripple="#" class="md-3-line" ng-repeat="message in
   messages" layout="column" >
 
