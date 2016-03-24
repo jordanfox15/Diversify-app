@@ -1,6 +1,14 @@
 (function(){
 	'use strict';
 
+var HomeCtrl = function($scope, $window){
+
+    $scope.loggedOut = function(){
+      return $window.sessionStorage.getItem('accessToken') === null
+    }
+};
+
+
 	angular
 	.module('home', [])
 
@@ -13,12 +21,19 @@
 						templateUrl: '/components/partials/header.html'
 					},
 					'content': {
-						templateUrl: '/components/home/home.html'
+						templateUrl: '/components/home/home.html',
+            controller: 'HomeCtrl'
 					}
 				}
 			})
 
 	}])
 
+  .controller("HomeCtrl", [
+    '$scope',
+    '$window',
+    HomeCtrl
+  ])
 
-})()
+
+})();
