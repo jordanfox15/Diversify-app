@@ -1,0 +1,80 @@
+<main class="md-padding layout-row flex" layout="row" layout-align="center" style="max-width: 978px; margin: 0 auto"flex="">
+<md-whiteframe class="md-whiteframe-z1" layout="column" flex="50" flex-xs="70" layout-padding>
+<md-content layout="column" layout-align="center center">
+  <h2>Edit your profile</h2>
+<h3>{{user.first_name}} {{user.last_name}}</h3>
+<form ng-submit='processForm()' layout="column" >
+<md-input-container>
+<label>First Name</label>
+<input ng-model="user.first_name" type="text">
+</md-input-container>
+<md-input-container>
+<label>Last Name</label>
+<input ng-model="user.last_name" type="text">
+</md-input-container>
+<md-input-container>
+<label>Age</label>
+<input ng-model="user.demographic.age" type="text">
+</md-input-container>
+<md-input-container>
+<label>Country</label>
+<md-select ng-model="user.demographic.country_id">
+  <md-option ng-repeat="country in demographics.countries"
+             value="{{country.id}}">
+             {{country.name}}
+             </md-option>
+</md-select>
+</md-input-container>
+<md-input-container>
+<label>Sexual Orientation</label>
+<md-select ng-model="user.demographic.sex_or_id">
+  <md-option ng-repeat="sex_or in demographics.sex_ors"
+             value="{{sex_or.id}}">
+             {{sex_or.name}}
+             </md-option>
+</md-select>
+</md-input-container>
+<md-input-container>
+<label>Religion</label>
+<md-select ng-model="user.demographic.religion_id">
+  <md-option ng-repeat="religion in demographics.religions"
+             value="{{religion.id}}">
+             {{religion.name}}
+             </md-option>
+</md-select>
+</md-input-container>
+<md-input-container>
+<label>Gender</label>
+<md-select ng-model="user.demographic.gender_id">
+  <md-option ng-repeat="gender in demographics.genders"
+             value="{{gender.id}}">
+             {{gender.name}}
+             </md-option>
+</md-select>
+</md-input-container>
+<md-input-container>
+<label>Race</label>
+<md-select ng-model="user.demographic.race_id">
+  <md-option ng-repeat="race in demographics.races"
+             value="{{race.id}}">
+             {{race.name}}
+             </md-option>
+</md-select>
+</md-input-container>
+<md-input-container>
+<label>SES</label>
+<md-select ng-model="user.demographic.ses_id">
+  <md-option ng-repeat="ses in demographics.seses"
+             value="{{ses.id}}">
+             {{ses.name}}
+             </md-option>
+</md-select>
+</md-input-container>
+<md-input-container layout-align="center center">
+<div layout="row" layout-sm="column" layout-margin>
+  <md-button class="md-raised" flex="auto" type='submit' style="background-color: #6699ff; color: white;">Save</md-button>
+</div>
+</md-input-container>
+</form>
+</md-content>
+</main>

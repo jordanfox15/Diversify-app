@@ -1,0 +1,14 @@
+<main class="flex" layout="column" >
+<div layout="row" layout-align="center stretch" style="height: auto;background-color: rgba(9, 9, 9, 0.5);">
+<div style="height: 55em; width: 100%; background: url('https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=9e5475f76039d4a116d6576a22528c45'); background-size: cover; background-position: center" layout="column" layout-align="start center">
+	<h1 style="color: white">Diversify</h1>
+<h3 style="color: white">Explore new cultures and make new friends</h3>
+<br>
+<md-divider>
+<br>
+	<a ui-sref="login" ng-show="loggedOut()" layout="column"><md-button class="md-raised md-primary" >Log In</md-button></a>
+	<a ui-sref="registration" ng-show="loggedOut()" layout="column"><md-button class="md-raised md-accent">Register</md-button></a>
+      <a ui-sref="profile" ng-hide="loggedOut()" layout="column"><md-button class="md-raised md-warn">My Profile</md-button></a>
+</div>
+</div>
+</main>

@@ -1,0 +1,42 @@
+<main class="md-padding layout-row flex" layout="row" layout-align="center" style="max-width: 978px; margin: 0 auto"flex="">
+<md-whiteframe class="md-whiteframe-z1" layout="column" flex="40" flex-xs="70" layout-padding>
+
+<md-content flex layout="column" layout-align-"center center">
+<form ng-submit='processForm()' flex layout="column" layout-align-"center
+  center">
+  <h1>Registration</h1>
+<md-input-container>
+<label>First Name:</label>
+<input ng-model="user.first_name" required>
+</md-input-container>
+
+<md-input-container>
+<label>Last Name:</label>
+<input ng-model="user.last_name" required>
+</md-input-container>
+
+<md-input-container>
+<label>Email:</label>
+<input ng-model="user.email" required>
+</md-input-container>
+
+<md-input-container>
+<label>Password:</label>
+<input ng-model="user.password" required type="password">
+</md-input-container>
+
+<md-input-container>
+<label>Confirm Password:</label>
+<input ng-model="user.password_confirmation" required type="password">
+</md-input-container>
+<label>Profile Picture</label>
+<input type="file" ngf-select ng-model="user.avatar" />
+<md-input-container layout-align="center center">
+<div layout="row" layout-sm="column" layout-margin>
+  <md-button class="md-raised md-primary" flex="auto" type="submit" style="background-color: #6699ff; color: white;">Register</md-button>
+</div>
+</md-input-container>
+</form>
+</md-content>
+
+</main>

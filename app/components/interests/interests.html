@@ -1,0 +1,22 @@
+<main class="md-padding layout-row flex" layout="row" layout-align="center" style="max-width: 978px; margin: 0 auto">
+  <md-whiteframe class="md-whiteframe-z1" layout="row" flex="70" flex-xs="70" layout-padding>
+  <md-content md-theme="docs-dark">
+  <strong style="margin: 0 auto"> Select all your interests! </strong>
+  <h2>{{user.first_name}} {{user.last_name}}</h2>
+  <form ng-submit='processForm()'>
+    <div layout="row" layout-xs="column" layout-wrap flex>
+      <div flex="30" ng-repeat="interest in interests">
+        <md-checkbox ng-checked="exists(interest, selected)" ng-click="toggle(interest, selected)">
+        {{ interest.name }} 
+      </md-checkbox>
+    </div>
+  </div>
+  <md-input-container layout-align="center center">
+  <div layout="row" layout-sm="column" layout-margin>
+    <md-button class="md-raised" flex="auto" type='submit' style="background-color: #6699ff; color: white;">Save</md-button>
+  </div>
+</md-input-container>
+</form>
+</md-content>
+
+</main>

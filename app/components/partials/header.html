@@ -1,0 +1,52 @@
+<div ng-controller="HeaderCtrl">
+  <div  layout="row">
+    <md-sidenav md-component-id="left" class="md-sidenav-left" layout="column">
+      <md-toolbar class="md-accent md-hue-3" layout="row"
+        layout-align="center center">
+ <md-button ng-click="openLeftMenu()" class="md-icon-button" aria-label="Settings">
+   <i class="material-icons">arrow_back</i>
+        </md-button>
+
+        <h1 class="md-toolbar-tools">Diversify</h1>
+      </md-toolbar>
+      <a ui-sref="home" layout="column"><md-button>Home</md-button></a>
+      <a ui-sref="matches" ng-hide="loggedOut()" layout="column"><md-button>Matches</md-button></a>
+      <a ui-sref="news" ng-hide="loggedOut()" layout="column"><md-button>Culture</md-button></a>
+      <a ui-sref="help" layout="column"><md-button>Help</md-button></a>
+      <a ui-sref="about" layout="column"><md-button>About</md-button></a>
+      <a ui-sref="login" ng-show="loggedOut()" layout="column"><md-button class="md-raised md-primary" >Log In</md-button></a>
+      <a ui-sref="registration" ng-show="loggedOut()" layout="column"><md-button class="md-raised md-accent">Register</md-button></a>
+      <a ui-sref="profile" ng-hide="loggedOut()" layout="column"><md-button class="md-raised md-warn">My Profile</md-button></a>
+      <a ui-sref="logout" ng-hide="loggedOut()" layout="column"><md-button class="md-raised md-warn">Log Out</md-button></a>
+    </md-sidenav>
+    <md-toolbar class="md-theme-indigo md-accent md-hue-3">
+      <div class="md-toolbar-tools">
+        <md-button ng-click="openLeftMenu()" class="md-icon-button" aria-label="Settings">
+          <i class="material-icons">menu</i>
+        </md-button>
+        <h1>Diversify</h1>
+      </div>
+    </md-toolbar>
+  </div>
+<!--
+  <div hide-xs layout="row" layout-padding class="bg-dark-blue nav-dark"
+                                           layout-align="space-between center" style="max-width: 978px; margin: 0 auto">
+    <div>
+      <a ui-sref="home" ng-hide="loggedOut()"><md-button class="md raised" style="background-color: #6699ff; color: white;">Home</md-button></a>
+      <a ui-sref="matches" ng-hide="loggedOut()"><md-button class="md raised" style="background-color: #993399; color: white;">Matches</md-button></a>
+      <a ui-sref="news" ng-hide="loggedOut()"><md-button class="md raised" style="background-color: #009933; color: white;">Culture</md-button></a>
+        <a ui-sref="help"><md-button md-menu-origin style="background-color:
+        #999999; color: white;">Help</md-button></a>
+            <a ui-sref="about"><md-button md-menu-origin style="background-color:
+        #999999; color: white;">About</md-button></a>
+    </div>
+    <div class="nav-buttons" >
+      <a ui-sref="login" ng-show="loggedOut()"><md-button class="md-raised md-primary">Log In</md-button></a>
+      <a ui-sref="registration" ng-show="loggedOut()"><md-button
+                                class="md-raised md-accent">Register</md-button></a>
+      <a ui-sref="profile" ng-hide="loggedOut()"><md-button class="md-raised md-accent">My profile</md-button></a>
+      <a ui-sref="logout" ng-hide="loggedOut()"><md-button class="md-raised md-warn">Log Out</md-button></a>
+    </div>
+  </div>
+--!>
+</div>
